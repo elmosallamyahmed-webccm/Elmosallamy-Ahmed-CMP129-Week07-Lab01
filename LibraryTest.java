@@ -1,3 +1,65 @@
 public class LibraryTest {
-    
+    public static void main(String[] args) {
+        Library CCM = new Library();
+        Library ESSEX = new Library();
+        Book book1 = new Book("The Hobbit", "J.R.R. Tolkien", 111);
+        Book book2 = new Book("Hamlet", "William Shakespeare", 222);
+        Book book3 = new Book("The Lord of the Rings", "J.R.R. Tolkien", 333);
+        Book book4 = new Book("Percy Jackson and the Lightning Thief", "Rick Riordan", 444);
+        Book book5 = new Book("To Kill a Mockingbird", "Harper Lee", 555);
+        Book book6 = new Book("Dune", "Frank Herbert", 666);
+        Book book7 = new Book("Holes", "Louis Sachar", 777);
+        Book book8 = new Book("The Great Gatsby", "F. Scott Fitzgerald", 888);
+        Member CCMMember1 = new Member("Ahmed Elmosallamy", 1);
+        Member CCMMember2 = new Member("Jane Doe", 2);
+        Member CCMMember3 = new Member("John Doe", 3);
+        Member ESSEXMember1 = new Member("Ahmed Elmosallamy", 1);
+        Member ESSEXMember2 = new Member("Jane Doe", 2);
+        Member ESSEXMember3 = new Member("John Doe", 3);
+        CCM.addBook(book1);
+        CCM.addBook(book2);
+        CCM.addBook(book3);
+        CCM.addBook(book4);
+        ESSEX.addBook(book5);
+        ESSEX.addBook(book6);
+        ESSEX.addBook(book7);
+        ESSEX.addBook(book8);
+        CCM.registerMember(CCMMember1);
+        CCM.registerMember(CCMMember2);
+        CCM.registerMember(CCMMember3);
+        ESSEX.registerMember(ESSEXMember1);
+        ESSEX.registerMember(ESSEXMember2);
+        ESSEX.registerMember(ESSEXMember3);
+        System.out.println("Test 1: Ahmed borrows The Hobbit from CCM");
+        System.out.println(CCM.borrowBook(book1, 1));
+        System.out.println(CCM.borrowBook(book1, 1));
+        System.out.println("Test 2: Jane tries borrowing unavailable Hobbit");
+        System.out.println(CCM.borrowBook(book1, 2));
+        System.out.println("Test 3: Jane borrows Hamlet from CCM");
+        System.out.println(CCM.borrowBook(book2, 2));
+        System.out.println("Test 4: Ahmed returns The Hobbit");
+        System.out.println(CCM.returnBook(book1, 1));
+        System.out.println("Test 5: John borrows returned Hobbit");
+        System.out.println(CCM.borrowBook(book1, 3));
+        System.out.println("Test 6: Jane tries returning Lord of the Rings without borrowing");
+        System.out.println(CCM.returnBook(book3, 2));
+        System.out.println("Test 7: Ahmed borrows Dune from ESSEX");
+        System.out.println(ESSEX.borrowBook(book6, 1));
+        System.out.println("Test 8: Jane borrows Holes from ESSEX");
+        System.out.println(ESSEX.borrowBook(book7, 2));
+        System.out.println("Test 9: John borrows The Great Gatsby from ESSEX");
+        System.out.println(ESSEX.borrowBook(book8, 3));
+        System.out.println("Test 10: Ahmed tries borrowing CCM book from ESSEX");
+        System.out.println(ESSEX.borrowBook(book4, 1));
+        System.out.println("Test 11: Ahmed returns Dune to ESSEX");
+        System.out.println(ESSEX.returnBook(book6, 1));
+        System.out.println("Test 12: John borrows returned Dune");
+        System.out.println(ESSEX.borrowBook(book6, 3));
+        System.out.println("CCM Ahmed borrowed books: " + CCMMember1.getBorrowedBooks().size());
+        System.out.println("CCM Jane borrowed books: " + CCMMember2.getBorrowedBooks().size());
+        System.out.println("CCM John borrowed books: " + CCMMember3.getBorrowedBooks().size());
+        System.out.println("ESSEX Ahmed borrowed books: " + ESSEXMember1.getBorrowedBooks().size());
+        System.out.println("ESSEX Jane borrowed books: " + ESSEXMember2.getBorrowedBooks().size());
+        System.out.println("ESSEX John borrowed books: " + ESSEXMember3.getBorrowedBooks().size());
+    }
 }
