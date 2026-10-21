@@ -6,7 +6,7 @@ public class Member {
     public Member(String name, int MEM_ID) {
         this.name = name;
         this.MEM_ID = MEM_ID;
-        borrowedBooks = new ArrayList<>();
+        borrowedBooks = new ArrayList<Book>();
     }
     public String getName() {
         return name;
